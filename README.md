@@ -112,17 +112,17 @@ This repository aims to solve the following 20 advanced business problems using 
 #### CREATING A DATABASE AND SQL QUERIES 
 **Creating a database named Zomato Db**
 
-'''SQL
+
 **Creating table called customers**
 
-
+--sample query 
 CREATE TABLE customers 
      ( customer_id INT PRIMARY KEY ,
 		 customer_name	 VARCHAR(30),
 		 reg_date DATE);
 
 **Creating table called restaurant**
-
+--sample query 
 CREATE TABLE restaurants
       (restaurant_id	INT PRIMARY KEY ,
 				restaurant_name	 VARCHAR(55),
@@ -130,7 +130,7 @@ CREATE TABLE restaurants
 				opening_hours VARCHAR(55) );
 
 ****Creating table called  orders****
-
+--sample query 
 CREATE TABLE orders 
     ( order_id INT PRIMARY KEY ,
 		customer_id INT , --THIS IS A FOREIGN KEY COMING FROM CUSTOMER TABLE 
@@ -142,12 +142,14 @@ CREATE TABLE orders
 		total_amount FLOAT);
 
 ****Creating table called riders****
+--sample query 
 CREATE TABLE riders
      (rider_id INT PRIMARY KEY ,
 		  rider_name VARCHAR(55),
 		  sign_up  DATE );
 
 ****Creating table called deliveries****
+--sample query 
 CREATE TABLE deliveries 
       (delivery_id  INT PRIMARY KEY ,
 		 order_id INT , --THIS IS COMING FROM  ORDERS TABLE 
@@ -156,19 +158,21 @@ CREATE TABLE deliveries
 		 rider_id INT --THIS IS COMING FROM RIDERS TABLE);
 
 **NOW ALTERING AND ADDING FOREIGN KEY CONSTAINT IN CUSTOMERS TABLE**
+--sample query 
 ALTER TABLE orders 
 ADD CONSTRAINT fk_customers
 FOREIGN KEY(customer_id)
 REFERENCES customers(customer_id);
 
 **NOW ALTERING AND ADDING FOREIGN KEY CONSTAINT IN RESTAURANTS TABLE**
+--sample query 
 ALTER TABLE orders 
 ADD CONSTRAINT fk_restaurant
 FOREIGN KEY(restaurant_id)
 REFERENCES restaurants(restaurant_id);
 
 **NOW ALTERING AND ADDING FOREIGN KEY CONSTAINT IN DELIVERIES TABLE**
-
+--sample query 
 DROP TABLE IF EXISTS deliveries;
 CREATE TABLE deliveries 
       (delivery_id  INT PRIMARY KEY ,
