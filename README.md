@@ -110,13 +110,11 @@ This repository aims to solve the following 20 advanced business problems using 
 **Goal**: Rank cities based on total revenue for the last year (2023)
 
 #### CREATING A DATABASE AND SQL QUERIES 
-** Creating a database named Zomato Db **
+**Creating a database named Zomato Db**
 
--CREATED A ZOMATO DB 
 
 **Creating table called customers**
 
---CREATING A TABLE CUSTOMERS
 
 CREATE TABLE customers 
      (
@@ -127,8 +125,6 @@ CREATE TABLE customers
      );
 
 **Creating table called restaurant**
---CREATING SECOND TABLE 
---CREATING TABLE RESTAURANT
 
 CREATE TABLE restaurants
       (
@@ -139,7 +135,6 @@ CREATE TABLE restaurants
 	  );
 
 ****Creating table called  orders****
---CREATING ORDERS TABLE WE GET 
 
 CREATE TABLE orders 
     (
@@ -154,7 +149,6 @@ CREATE TABLE orders
 	);
 
 ****Creating table called riders****
---CREATING RIDERS TABLE WE GET
 CREATE TABLE riders
      (
           rider_id INT PRIMARY KEY ,
@@ -163,8 +157,6 @@ CREATE TABLE riders
 	 );
 
 ****Creating table called deliveries****
---NOW CREATING TABLE DELIVERY
-
 CREATE TABLE deliveries 
       (
          delivery_id  INT PRIMARY KEY ,
@@ -175,23 +167,21 @@ CREATE TABLE deliveries
 
 	  );
 
-**NOW ALTERING AND ADDING FOREIGN KEY CONSTAINT IN TABLE**
---adding foreign key constraint in orders table 
+**NOW ALTERING AND ADDING FOREIGN KEY CONSTAINT IN CUSTOMERS TABLE**
 ALTER TABLE orders 
 ADD CONSTRAINT fk_customers
 FOREIGN KEY(customer_id)
 REFERENCES customers(customer_id);
 
---adding another foreign key constraint in orders table
+**NOW ALTERING AND ADDING FOREIGN KEY CONSTAINT IN RESTAURANTS TABLE**
 ALTER TABLE orders 
 ADD CONSTRAINT fk_restaurant
 FOREIGN KEY(restaurant_id)
 REFERENCES restaurants(restaurant_id);
 
---now dropping table deliveries just to able constraint while creating table
+**NOW ALTERING AND ADDING FOREIGN KEY CONSTAINT IN DELIVERIES TABLE**
 
 DROP TABLE IF EXISTS deliveries;
---now creating it again to add constraint to the table 
 CREATE TABLE deliveries 
       (
          delivery_id  INT PRIMARY KEY ,
