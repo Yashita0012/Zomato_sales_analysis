@@ -117,55 +117,43 @@ This repository aims to solve the following 20 advanced business problems using 
 
 
 CREATE TABLE customers 
-     (
-         customer_id INT PRIMARY KEY ,
+     ( customer_id INT PRIMARY KEY ,
 		 customer_name	 VARCHAR(30),
-		 reg_date DATE
-
-     );
+		 reg_date DATE);
 
 **Creating table called restaurant**
 
 CREATE TABLE restaurants
-      (
-                restaurant_id	INT PRIMARY KEY ,
+      (restaurant_id	INT PRIMARY KEY ,
 				restaurant_name	 VARCHAR(55),
 				city  VARCHAR(15),
-				opening_hours VARCHAR(55)
-	  );
+				opening_hours VARCHAR(55) );
 
 ****Creating table called  orders****
 
 CREATE TABLE orders 
-    (
-        order_id INT PRIMARY KEY ,
+    ( order_id INT PRIMARY KEY ,
 		customer_id INT , --THIS IS A FOREIGN KEY COMING FROM CUSTOMER TABLE 
 		restaurant_id INT , --THIS IS A FOREIGN KEY COMING FROM RESTAURANT TABLE 
 		order_item	VARCHAR(55),
 		order_date  DATE,
 		order_time	TIME ,
 		order_status VARCHAR(55),
-		total_amount FLOAT
-	);
+		total_amount FLOAT);
 
 ****Creating table called riders****
 CREATE TABLE riders
-     (
-          rider_id INT PRIMARY KEY ,
+     (rider_id INT PRIMARY KEY ,
 		  rider_name VARCHAR(55),
-		  sign_up  DATE
-	 );
+		  sign_up  DATE );
 
 ****Creating table called deliveries****
 CREATE TABLE deliveries 
-      (
-         delivery_id  INT PRIMARY KEY ,
+      (delivery_id  INT PRIMARY KEY ,
 		 order_id INT , --THIS IS COMING FROM  ORDERS TABLE 
 		 delivery_status  VARCHAR(35),
 		 delivery_time	 TIME ,
-		 rider_id INT --THIS IS COMING FROM RIDERS TABLE
-
-	  );
+		 rider_id INT --THIS IS COMING FROM RIDERS TABLE);
 
 **NOW ALTERING AND ADDING FOREIGN KEY CONSTAINT IN CUSTOMERS TABLE**
 ALTER TABLE orders 
@@ -183,15 +171,13 @@ REFERENCES restaurants(restaurant_id);
 
 DROP TABLE IF EXISTS deliveries;
 CREATE TABLE deliveries 
-      (
-         delivery_id  INT PRIMARY KEY ,
+      (delivery_id  INT PRIMARY KEY ,
 		 order_id INT , --THIS IS COMING FROM  ORDERS TABLE 
 		 delivery_status  VARCHAR(35),
 		 delivery_time	 TIME ,
 		 rider_id INT , --THIS IS COMING FROM RIDERS TABLE 
 		 CONSTRAINT fk_orders FOREIGN KEY (order_id) REFERENCES orders(order_id),
-		 CONSTRAINT fk_rider FOREIGN KEY (rider_id) REFERENCES riders(rider_id)
-	  );
+		 CONSTRAINT fk_rider FOREIGN KEY (rider_id) REFERENCES riders(rider_id));
 
 
 
