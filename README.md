@@ -112,25 +112,22 @@ This repository aims to solve the following 20 advanced business problems using 
 #### CREATING A DATABASE AND SQL QUERIES 
 **Creating a database named Zomato Db**
 
-
-**Creating table called customers**
-
 ```sql
 CREATE TABLE customers 
      ( customer_id INT PRIMARY KEY ,
 		 customer_name	 VARCHAR(30),
 		 reg_date DATE);
 
-**Creating table called restaurant**
-```sql
+#Creating table called restaurant
+
 CREATE TABLE restaurants
       (restaurant_id	INT PRIMARY KEY ,
 				restaurant_name	 VARCHAR(55),
 				city  VARCHAR(15),
 				opening_hours VARCHAR(55) );
 
-****Creating table called  orders****
-```sql
+#Creating table called  orders
+
 CREATE TABLE orders 
     ( order_id INT PRIMARY KEY ,
 		customer_id INT , --THIS IS A FOREIGN KEY COMING FROM CUSTOMER TABLE 
@@ -141,15 +138,15 @@ CREATE TABLE orders
 		order_status VARCHAR(55),
 		total_amount FLOAT);
 
-****Creating table called riders****
-```sql
+#Creating table called riders
+
 CREATE TABLE riders
      (rider_id INT PRIMARY KEY ,
 		  rider_name VARCHAR(55),
 		  sign_up  DATE );
 
-****Creating table called deliveries****
-```sql
+#Creating table called deliveries
+
 CREATE TABLE deliveries 
       (delivery_id  INT PRIMARY KEY ,
 		 order_id INT , --THIS IS COMING FROM  ORDERS TABLE 
@@ -157,22 +154,22 @@ CREATE TABLE deliveries
 		 delivery_time	 TIME ,
 		 rider_id INT --THIS IS COMING FROM RIDERS TABLE);
 
-**NOW ALTERING AND ADDING FOREIGN KEY CONSTAINT IN CUSTOMERS TABLE**
-```sql
+#NOW ALTERING AND ADDING FOREIGN KEY CONSTAINT IN CUSTOMERS TABLE
+
 ALTER TABLE orders 
 ADD CONSTRAINT fk_customers
 FOREIGN KEY(customer_id)
 REFERENCES customers(customer_id);
 
-**NOW ALTERING AND ADDING FOREIGN KEY CONSTAINT IN RESTAURANTS TABLE**
- ```sql
+#NOW ALTERING AND ADDING FOREIGN KEY CONSTAINT IN RESTAURANTS TABLE
+ 
 ALTER TABLE orders 
 ADD CONSTRAINT fk_restaurant
 FOREIGN KEY(restaurant_id)
 REFERENCES restaurants(restaurant_id);
 
-**NOW ALTERING AND ADDING FOREIGN KEY CONSTAINT IN DELIVERIES TABLE**
-```sql 
+#NOW ALTERING AND ADDING FOREIGN KEY CONSTAINT IN DELIVERIES TABLE
+ 
 DROP TABLE IF EXISTS deliveries;
 CREATE TABLE deliveries 
       (delivery_id  INT PRIMARY KEY ,
