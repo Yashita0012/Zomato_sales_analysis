@@ -112,7 +112,7 @@ This repository aims to solve the following 20 advanced business problems using 
 #### CREATING A DATABASE AND SQL QUERIES 
 **Creating a database named Zomato Db**
 
-
+'''SQL
 **Creating table called customers**
 
 
